@@ -1,15 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
+// use App\Http\Controllers\TestController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('index', function () {
+    return view("index");
+});
+
+
 /***************** TEST Route **************************** */
 //~echo TestController::class;// == App\Http\Controllers\TestController
-Route::get('home', [TestController::class,'firstAction' ]);
+// Route::get('home', [TestController::class,'firstAction' ]);
 
 
 
