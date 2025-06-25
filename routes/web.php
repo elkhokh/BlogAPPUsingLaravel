@@ -3,32 +3,99 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\TestController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::view('/',"index");
+Route::view('/about',"about");
+Route::view('/contact',"contact");
+Route::view('/post',"post");
 
 
-Route::get('index', function () {
-    return view("index");
-});
-Route::get('post', function () {
-    return view("post");
-});
-Route::get('contact', function () {
-    return view("contact");
-});
-Route::get('about', function () {
-    return view("about");
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+
+/***************  just test  **************************** */
+
+// Route::get('index', function () {
+//     return view("index");
+// });
+// Route::get('post', function () {
+//     return view("post");
+// });
+// Route::get('contact', function () {
+//     return view("contact");
+// });
+// Route::get('about', function () {
+//     return view("about");
+// });
 
 
 
 /***************** TEST Route **************************** */
 //~echo TestController::class;// == App\Http\Controllers\TestController
 // Route::get('home', [TestController::class,'firstAction' ]);
-
-
-
 
 // callback function in php using laravel
 

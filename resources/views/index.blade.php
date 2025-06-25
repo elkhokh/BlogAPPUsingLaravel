@@ -1,10 +1,9 @@
+@extends('layout.app')
 
-@include('layout.header')
-        <!-- Navigation-->
- @include('layout.nav')
-        <!-- Page Header-->
- {{-- @include('layout.pageheader') --}}
-         <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+@section("title", "Home")
+
+@section("header")
+        <header class="masthead" style="background-image: url('assets/image/home-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -16,69 +15,32 @@
                 </div>
             </div>
         </header>
+@endsection
 
-        <!-- Main Content-->
+@section("content")
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 18, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Science has not yet mastered prophecy</h2>
-                            <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on August 24, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Failure is not an option</h2>
-                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
+                    {{-- props method --}}
+                {{-- <x-cart-post-component title="Man must explore, and this is exploration at its greatest" subtitle="Problems look mighty small from 150 miles up" /> --}}
+                {{-- slot method --}}
+                <x-cart-post-component >
+                    <x-slot name="title">Man must explore, and this is exploration at its greatest</x-slot>
+                    <x-slot name="subtitle">Problems look mighty small from 150 miles up</x-slot>
+                    <x-slot name="create_name">ali</x-slot>
+                    <x-slot name="created_at">on September 24, 2025</x-slot>
+                </x-cart-post-component>
+
+                <x-cart-post-component >
+                    <x-slot name="title">welcome to be in laravel</x-slot>
+                    <x-slot name="subtitle">test </x-slot>
+                    <x-slot name="create_name">mostafa</x-slot>
+                    <x-slot name="created_at">on September 24, 2025</x-slot>
+                </x-cart-post-component>
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
         </div>
-        <!-- Footer-->
-
-@include('layout.footer')
+@endsection
