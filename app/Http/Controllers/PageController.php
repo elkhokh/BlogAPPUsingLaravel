@@ -43,6 +43,10 @@ class PageController extends Controller
     public function contact(){
         return view("contact");
     }
+        public function create_new_contact(Request $request ){
+            dd($request->all());
+        // return view("contact");
+    }
     //     public function test($id){
     //         dd($id);
     //     return view("contact");

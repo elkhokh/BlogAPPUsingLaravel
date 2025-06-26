@@ -25,23 +25,24 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
                         <div class="my-5">
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <form id="contactForm" method="POST" action="{{ route("create_new_contact") }}">
+                                @csrf
                                 <div class="form-floating">
-                                    <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                    <input class="form-control" id="name" type="text" name="name" />
                                     <label for="name">Name</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="email" type="email" placeholder="Enter your email..." />
+                                    <input class="form-control" id="email" type="email" name="email" />
                                     <label for="email">Email address</label>
 
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..." />
+                                    <input class="form-control" id="phone" type="tel" name="phone" />
                                     <label for="phone">Phone Number</label>
 
                                 </div>
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 12rem" ></textarea>
+                                    <textarea class="form-control" id="message" name="message" style="height: 12rem" ></textarea>
                                     <label for="message">Message</label>
                                 </div>
                                 <br />
@@ -53,7 +54,7 @@
                                         <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                     </div>
                                 </div>
-                        
+
                                 <!-- Submit Button-->
                                 <button class="btn btn-primary text-uppercase " id="submitButton" type="submit">Send</button>
                             </form>
