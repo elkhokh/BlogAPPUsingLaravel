@@ -25,19 +25,14 @@
                     {{-- props method --}}
                 {{-- <x-cart-post-component title="Man must explore, and this is exploration at its greatest" subtitle="Problems look mighty small from 150 miles up" /> --}}
                 {{-- slot method --}}
+                @foreach($posts as $post)
                 <x-cart-post-component >
-                    <x-slot name="title">Man must explore, and this is exploration at its greatest</x-slot>
-                    <x-slot name="subtitle">Problems look mighty small from 150 miles up</x-slot>
-                    <x-slot name="create_name">ali</x-slot>
-                    <x-slot name="created_at">on September 24, 2025</x-slot>
+                    <x-slot name="title">{{ $post['title'] }}</x-slot>
+                    <x-slot name="subtitle">{{ $post['subtitle'] }}</x-slot>
+                    <x-slot name="create_name">{{ $post['create_name'] }}</x-slot>
+                    <x-slot name="created_at">{{ $post['created_at'] }}</x-slot>
                 </x-cart-post-component>
-
-                <x-cart-post-component >
-                    <x-slot name="title">welcome to be in laravel</x-slot>
-                    <x-slot name="subtitle">test </x-slot>
-                    <x-slot name="create_name">mostafa</x-slot>
-                    <x-slot name="created_at">on September 24, 2025</x-slot>
-                </x-cart-post-component>
+                @endforeach
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>

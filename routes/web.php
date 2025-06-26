@@ -1,13 +1,24 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\TestController;
 
 
-Route::view('/',"index");
-Route::view('/about',"about");
-Route::view('/contact',"contact");
-Route::view('/post',"post");
+// Route::view('/',"index");
+Route::get('/',[PageController::class,'index']);
+
+// Route::view('/about',"about");
+Route::get('/about',[PageController::class,'about']);
+
+// Route::view('/contact',"contact");
+Route::get('/contact',[PageController::class,'contact']);
+Route::post('/contact',[PageController::class,'create_new_contact'])->name("create_new_contact");
+// Route::get('/contact/{id}',[PageController::class,'test']);
+
+// Route::view('/post',"post");
+Route::get('/post',[PageController::class,'post']);
+
 
 
 
@@ -73,9 +84,6 @@ Route::view('/post',"post");
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-
-
 /***************  just test  **************************** */
 
 // Route::get('index', function () {
@@ -93,7 +101,7 @@ Route::view('/post',"post");
 
 
 
-/***************** TEST Route **************************** */
+/***************** TEST Route  useing controller **************************** */
 //~echo TestController::class;// == App\Http\Controllers\TestController
 // Route::get('home', [TestController::class,'firstAction' ]);
 
