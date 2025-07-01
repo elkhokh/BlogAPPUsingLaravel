@@ -15,7 +15,9 @@ class FooterComponent extends Component
     {
         //
     }
-
+    public function geter(){
+        
+    }
     /**
      * Get the view / contents that represent the component.
      */

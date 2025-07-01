@@ -18,73 +18,15 @@ Route::post('/contact',[PageController::class,'create_new_contact'])->name("crea
 
 // Route::view('/post',"post");
 Route::get('/post',[PageController::class,'post']);
+Route::get('/form',[PageController::class,'form']);
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/***************  just test  **************************** */
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-/***************  just test  **************************** */
 
 // Route::get('index', function () {
 //     return view("index");
