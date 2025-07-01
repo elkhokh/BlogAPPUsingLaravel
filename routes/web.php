@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::view('/',"index");
 Route::get('/',[PageController::class,'index']);
+Route::get('/index',[PageController::class,'index']);
 
 // Route::view('/about',"about");
 Route::get('/about',[PageController::class,'about']);
@@ -19,6 +20,7 @@ Route::post('/contact',[PageController::class,'create_new_contact'])->name("crea
 // Route::view('/post',"post");
 Route::get('/post',[PageController::class,'post']);
 Route::get('/form',[PageController::class,'form']);
+Route::post('/form',[PageController::class,'create_blog'])->name('create_blog');
 
 
 

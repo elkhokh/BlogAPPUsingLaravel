@@ -46,6 +46,10 @@ class PageController extends Controller
     public function form(){
         return view("form");
     }
+            public function create_blog(Request $request ){
+            dd($request->all());
+        // return view("contact");
+    }
         public function create_new_contact(Request $request ){
             dd($request->all());
         // return view("contact");
