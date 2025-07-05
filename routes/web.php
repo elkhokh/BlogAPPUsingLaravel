@@ -1,31 +1,72 @@
 <?php
 
+use App\Http\Controllers\Mostafa\MostafaController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\TestController;
 
-
+//route of controller in app/http/PageController.php
 // Route::view('/',"index");
-Route::get('/',[PageController::class,'index']);
-Route::get('/index',[PageController::class,'index']);
+
+//update version in controller
+Route::controller(PageController::class)->group(function(){
+Route::get('/','index');
+Route::get('/index','index');
 
 // Route::view('/about',"about");
-Route::get('/about',[PageController::class,'about']);
+Route::get('/about','about');
 
 // Route::view('/contact',"contact");
-Route::get('/contact',[PageController::class,'contact']);
-Route::post('/contact',[PageController::class,'create_new_contact'])->name("create_new_contact");
+Route::get('/contact','contact');
+Route::post('/contact','create_new_contact')->name("create_new_contact");
 // Route::get('/contact/{id}',[PageController::class,'test']);
 
 // Route::view('/post',"post");
-Route::get('/post',[PageController::class,'post']);
-Route::get('/form',[PageController::class,'form']);
-Route::post('/form',[PageController::class,'create_blog'])->name('create_blog');
+Route::get('/post','post');
+Route::get('/form','form');
+Route::post('/form','create_blog')->name('create_blog');
+
+});
 
 
+//another soluation
+// Route::get('/',[PageController::class,'index']);
+// Route::get('/index',[PageController::class,'index']);
 
+// // Route::view('/about',"about");
+// Route::get('/about',[PageController::class,'about']);
+
+// // Route::view('/contact',"contact");
+// Route::get('/contact',[PageController::class,'contact']);
+// Route::post('/contact',[PageController::class,'create_new_contact'])->name("create_new_contact");
+// // Route::get('/contact/{id}',[PageController::class,'test']);
+
+// // Route::view('/post',"post");
+// Route::get('/post',[PageController::class,'post']);
+// Route::get('/form',[PageController::class,'form']);
+// Route::post('/form',[PageController::class,'create_blog'])->name('create_blog');
 
 /***************  just test  **************************** */
+// route resource
+Route::resource('mostafa',MostafaController::class);
+//expect and only route
+
+
+
+
+//---------------------------------------
+
+Route::controller(PostController::class)->group(function(){
+Route::get('/posts','showPosts');
+Route::get('/posts/create','createPosts');
+Route::get('/posts/edit/{id}','editPosts');
+Route::get('/posts/update/{id}','updatePosts');
+Route::get('/posts/delete/{id}','deletePosts');
+
+});
+
+/**************************************************** */
 // Route::get('/', function () {
 //     return view('welcome');
 // });

@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section("title", "about")
-
+{{-- @stop  --}}
  <!-- Page Header-->
 @section("header")
         <header class="masthead" style="background-image: url('assets/image/about-bg.jpg')">
