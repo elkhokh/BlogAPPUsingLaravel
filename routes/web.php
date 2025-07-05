@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Mostafa\MostafaController;
+use App\Http\Controllers\Mostafa\TestController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -49,22 +50,31 @@ Route::post('/form','create_blog')->name('create_blog');
 
 /***************  just test  **************************** */
 // route resource
-Route::resource('mostafa',MostafaController::class);
-//expect and only route
+Route::resource('mostafa',MostafaController::class)->middleware('auth');
 
+////expect  route run all routes but are exist in expect()
+// Route::resource('mostafa',MostafaController::class)->expect(['show','store']);
+////only route run all method exist in only()
+// Route::resource('mostafa',MostafaController::class)->only(['create','index','destroy','edit','update']);
+
+
+/************************   single action controller ( invoke )    ************ */
+Route::get('test_invoke',TestController::class);
 
 
 
 //---------------------------------------
 
-Route::controller(PostController::class)->group(function(){
-Route::get('/posts','showPosts');
-Route::get('/posts/create','createPosts');
-Route::get('/posts/edit/{id}','editPosts');
-Route::get('/posts/update/{id}','updatePosts');
-Route::get('/posts/delete/{id}','deletePosts');
+Route::controller(PostController::class)->prefix('posts')->group(function(){
+Route::get('/','showPosts');
+Route::get('/create','createPosts');
+Route::get('/edit/{id}','editPosts');
+Route::get('/update/{id}','updatePosts');
+Route::get('/delete/{id}','deletePosts');
 
 });
+
+
 
 /**************************************************** */
 // Route::get('/', function () {

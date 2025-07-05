@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string("title",255)->nullable();
-            $table->timestamps();
+            $table->timestamps();//created_at and updated_at
+            //$tabel->boolean('check')->default(0);
             $table->integer("views")->nullable();
             $table->enum("status",['active','notactive'])->default('notactive');
             $table->text("content")->nullable();

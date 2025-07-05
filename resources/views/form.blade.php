@@ -18,7 +18,7 @@
 
 
 
-{{-- <div class="container mt-4">
+<div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card shadow-sm rounded-3">
@@ -96,5 +96,5 @@
       </div>
     </div>
   </div>
-</div> --}}
+</div>
 @endsection
