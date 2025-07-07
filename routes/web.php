@@ -5,7 +5,13 @@ use App\Http\Controllers\Mostafa\TestController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Models\Post;
+use App\Models\Profile;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+
+
+
 
 // use App\Http\Controllers\TestController;
 
@@ -149,6 +155,22 @@ Route::get('eloquent', function () {
     // $find = Post::whereNotNull('content')->get();
     // return $find ;
 
+});
+
+Route::get('profile',function(){
+    // $user = User::create([
+    //     'name'=>'mostafa2',
+    //     'email'=>'mostafa@gmail.com1',
+    //     'password'=>Hash::make('Aa1234567'),
+    // ]);
+
+    // $user->profile()->create([
+    //     'phone'=>'01004643862',
+    //     'address'=>'santa-tanta2',
+    //     'bio'=>'backdeveloper PHP | laravel2'
+    // ]);
+     $select = Profile::all();
+     return $select ;
 });
 /**************************************************** */
 // Route::get('/', function () {

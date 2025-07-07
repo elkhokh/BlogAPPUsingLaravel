@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function profile(){
+        //one to one relation
+        // return $this->hasOne(Profile::class ,'user_id','id');//or if name conventional is true
+        return $this->hasOne(Profile::class );
+    }
 }
