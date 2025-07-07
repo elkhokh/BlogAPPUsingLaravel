@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -35,19 +36,26 @@ class PageController extends Controller
         return view("index",["posts"=>$posts]);
     }
     public function about(){
-        return view("about");
+        return view("about");//go to about page in views
     }
     public function post(){
-        return view("post");
+        return view("post");//go to post page in views
     }
     public function contact(){
-        return view("contact");
+        return view("contact");//go to contact pate  in views
     }
     public function form(){
         return view("form");
     }
-            public function create_blog(Request $request ){
-            dd($request->all());
+    public function insert(Request $request ){
+        // dd($request->all());
+        // return $request ;
+
+        // to insert in database
+        DB::tabel();
+    }
+    public function create_blog(Request $request ){
+        dd($request->all());
         // return view("contact");
     }
         public function create_new_contact(Request $request ){

@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
+            // هعمل علي دا كاستس بحيث انه يرجعلي ترو او فولس مش 0 و 1
             $table->boolean('check')->default(0)->after('content');
         });
     }

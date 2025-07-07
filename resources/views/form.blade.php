@@ -26,7 +26,9 @@
           Add New Item
         </div>
         <div class="card-body p-3">
-          <form method="POST" action="/submit">
+          {{-- <form method="POST" action="{{ url('form/insert') }}"> --}}
+            {{-- if i use name in route --}}
+          <form method="POST" action="{{ route('form.insert') }}">
             @csrf
             <div class="mb-2">
               <label for="title" class="form-label small">Title</label>

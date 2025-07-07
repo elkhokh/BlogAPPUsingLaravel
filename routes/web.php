@@ -4,7 +4,9 @@ use App\Http\Controllers\Mostafa\MostafaController;
 use App\Http\Controllers\Mostafa\TestController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+
 // use App\Http\Controllers\TestController;
 
 //route of controller in app/http/PageController.php
@@ -13,20 +15,21 @@ use Illuminate\Support\Facades\Route;
 //update version in controller
 Route::controller(PageController::class)->group(function(){
 Route::get('/','index');
-Route::get('/index','index');
+Route::get('index','index');
 
 // Route::view('/about',"about");
-Route::get('/about','about');
+Route::get('about','about');
 
 // Route::view('/contact',"contact");
-Route::get('/contact','contact');
-Route::post('/contact','create_new_contact')->name("create_new_contact");
+Route::get('contact','contact');
+Route::post('contact','create_new_contact')->name("create_new_contact");
 // Route::get('/contact/{id}',[PageController::class,'test']);
 
 // Route::view('/post',"post");
-Route::get('/post','post');
-Route::get('/form','form');
-Route::post('/form','create_blog')->name('create_blog');
+Route::get('post','post');
+Route::get('form','form');
+Route::post('form/insert','insert')->name('form.insert');
+// Route::post('/form','create_blog')->name('create_blog');
 
 });
 
@@ -75,7 +78,61 @@ Route::get('/delete/{id}','deletePosts');
 });
 
 
+/********************  Test Eloquent **************** */
+//ORM , Eloquent and Query Bluider
+//Eloquent
+// طبعا الكلام دا بيحصل في الكونترولر
+Route::get('eloquent', function () {
 
+    //create
+    // $post=new Post() ;
+    // $post->title ="casts";
+    // $post->content ="test casts";
+    // $post->views =100;
+    // $post->status ="active";
+    // $post->check =1;
+    // $post->save();
+
+    // //select
+    // return post::find(1);
+    // return post::findOrFail(1);
+    // return post::all();
+
+    //update
+    // $post = Post::find(1);
+    // $post->title="update databse";
+    // $post->save();
+
+    //delete
+    // $post=POst::find(2)->delete();
+
+});
+
+// mass assignment using guarded and fillable
+Route::get('eloquent', function () {
+    //create
+    // Post::create([
+    //     "title"=>"mass assignment2",
+    //     "content"=>"test mass assignmentone2",
+    //     "views"=>200,
+    //     "status"=>"active",
+    //     "check"=>1,
+    // ]);
+    //select
+    // $select = post::all();
+    // return $select ;
+
+    //query
+    //find all posts if check = 0
+    // $find = Post::where('check','1')->get();
+    // $find = Post::where('check','!=','1')->get();
+    // $find = Post::where('check','false')->get();
+    // return $find ;
+
+    //orderby
+    
+
+});
 /**************************************************** */
 // Route::get('/', function () {
 //     return view('welcome');

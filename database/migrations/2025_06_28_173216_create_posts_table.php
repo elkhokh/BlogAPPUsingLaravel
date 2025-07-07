@@ -20,6 +20,14 @@ return new class extends Migration
             $table->enum("status",['active','notactive'])->default('notactive');
             $table->text("content")->nullable();
             $table->dateTime("create_at");
+
+            // $table->foreignId('user_id')->constrained();
+            // $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            // $table->foreignId('user_id')->constrained('users');//the same
+
+            // $table->unsignedInteger('user_id');//is wrong state
+            // $table->unsignedBigInteger('user_id');
+            // $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
