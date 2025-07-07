@@ -130,7 +130,24 @@ Route::get('eloquent', function () {
     // return $find ;
 
     //orderby
-    
+    // $find = Post::orderBy('created_at')->get();
+    // $find = Post::orderBy('created_at','desc')->get();
+    // dd(now()->subDays(7));
+    // $find =Post::where('check','false')->where('created_at','>=',now()->subDays(7))->get();
+    // return $find ;
+
+    //search
+    // $search =Post::where('title','like','%data%')->limit(1)->get();
+    // $search =Post::where('title','like','%data%')->first();
+    // return $search ;
+
+    //find
+    // $find = Post::whereIn('id',[1,2,5])->get();
+    // $find = Post::whereIn('id',[1,2,5])->first();
+    // $find = Post::whereNotIn('id',[1,2,5])->get();
+    // $find = Post::whereNull('content')->get();
+    // $find = Post::whereNotNull('content')->get();
+    // return $find ;
 
 });
 /**************************************************** */
