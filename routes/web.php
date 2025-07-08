@@ -92,9 +92,9 @@ Route::get('eloquent', function () {
 
     //create
     // $post=new Post() ;
-    // $post->title ="casts";
-    // $post->content ="test casts";
-    // $post->views =100;
+    // $post->title ="castss";
+    // $post->content ="test castss";
+    // $post->views =1001;
     // $post->status ="active";
     // $post->check =1;
     // $post->save();
@@ -118,11 +118,12 @@ Route::get('eloquent', function () {
 Route::get('eloquent', function () {
     //create
     // Post::create([
-    //     "title"=>"mass assignment2",
-    //     "content"=>"test mass assignmentone2",
+    //     "title"=>"mass assignment",
+    //     "content"=>"test mass assignmentone",
     //     "views"=>200,
     //     "status"=>"active",
     //     "check"=>1,
+    //     "user_id"=>1
     // ]);
     //select
     // $select = post::all();
@@ -158,19 +159,25 @@ Route::get('eloquent', function () {
 });
 
 Route::get('profile',function(){
+    // one to one relation
     // $user = User::create([
-    //     'name'=>'mostafa2',
-    //     'email'=>'mostafa@gmail.com1',
+    //     'name'=>'mostafa3',
+    //     'email'=>'mostafa@gmail.com3',
     //     'password'=>Hash::make('Aa1234567'),
     // ]);
 
     // $user->profile()->create([
-    //     'phone'=>'01004643862',
-    //     'address'=>'santa-tanta2',
-    //     'bio'=>'backdeveloper PHP | laravel2'
+    //     'phone'=>'01004643863',
+    //     'address'=>'santa-tanta3',
+    //     'bio'=>'backdeveloper PHP | laravel3'
     // ]);
-     $select = Profile::all();
-     return $select ;
+    //  $select = Profile::all();
+    //  return $select ;
+    // $user = User::find(3)->profile ;
+    // return $user ;
+    // $profile = Profile::find(1)->user;
+    // return $profile;
+
 });
 /**************************************************** */
 // Route::get('/', function () {

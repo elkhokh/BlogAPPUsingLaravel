@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+    //one to many relation
+            $table->foreignId('user_id')->after('id')->constrained('users');
         });
     }
 
@@ -22,7 +23,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            //if i want to make drop to relation must make drop to relation in the first
+            $table->dropForeign('user_id');
+            $table->dropColumn(['user_id']);
         });
     }
 };
