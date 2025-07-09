@@ -32,7 +32,16 @@ class PageController extends Controller
     //     "created_at"=>"on September 2, 2025"
     // ],
     // ];
-    $posts = Post::all();
+    $posts = Post::with('user')->get();
+
+    // pagenation
+    $posts = Post::paginate(2); //with show number of pages
+    // $posts = Post::simplePaginate(2);// without show the number of pages is faster than paginate
+    // $posts = Post::cursorPaginate(2);// without show the number of pages and is the faster than of them when use alotof record
+
+    // $posts = Post::all();
+    // return $posts;
+
         return view("index",["posts"=>$posts]);
 
     }

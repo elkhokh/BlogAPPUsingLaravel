@@ -27,12 +27,13 @@
                 {{-- slot method --}}
                 @foreach($posts as $post)
                 <x-cart-post-component >
-                    <x-slot name="title">{{ $post['title'] }}</x-slot>
-                    <x-slot name="subtitle">{{ $post['subtitle'] }}</x-slot>
-                    <x-slot name="create_name">{{ $post['create_name'] }}</x-slot>
-                    <x-slot name="created_at">{{ $post['created_at'] }}</x-slot>
+                    <x-slot name="title">{{ $post->title }}</x-slot>
+                    <x-slot name="subtitle">{{ $post->content }}</x-slot>
+                    <x-slot name="auth">{{ $post->user->name }}</x-slot>
+                    <x-slot name="created_at">{{ $post->created_at }}</x-slot>
                 </x-cart-post-component>
                 @endforeach
+                {{ $posts->links() }}
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>

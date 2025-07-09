@@ -84,7 +84,11 @@ Route::get('/delete/{id}','deletePosts');
 
 });
 
+/**************** query builder ********************* */
 
+Route::get('/builder', function(){
+
+});
 /********************  Test Eloquent **************** */
 //ORM , Eloquent and Query Bluider
 //Eloquent

@@ -7,8 +7,10 @@
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">{{ $create_name }}</a>
+                            <a href="#!">{{ $auth }}</a>
+                            <br>
                             {{ $created_at }}
+                        </br>
                         </p>
                     </div>
                     <!-- Divider-->
