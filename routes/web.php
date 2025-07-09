@@ -4,6 +4,7 @@ use App\Http\Controllers\Mostafa\MostafaController;
 use App\Http\Controllers\Mostafa\TestController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\Profile;
 use App\Models\User;
@@ -88,6 +89,25 @@ Route::get('/delete/{id}','deletePosts');
 //ORM , Eloquent and Query Bluider
 //Eloquent
 // طبعا الكلام دا بيحصل في الكونترولر
+Route::get('/cate', function(){
+
+    // $categories=[
+    //     'html','css','bootstrap', 'js','react', 'php', 'mysql','laravel'
+    // ];
+
+    // foreach($categories as $cate){
+    //      Category::create(['name'=>$cate]);
+    // }
+
+    $post =Post::find(4);
+    // use attach becuse this is the part three
+    // $post->categories()->attach([1,3,6]);//add categroies 1  6 at post 4 if make refreh it add the new but not delete the older
+    // $post->categories()->detach([1,3]);//delete  1 , 3
+    // $post->categories()->sync([2,3,1]);// if make refreh it delete the older and add the new
+});
+
+
+
 Route::get('eloquent', function () {
 
     //create
@@ -159,7 +179,7 @@ Route::get('eloquent', function () {
 });
 
 Route::get('profile',function(){
-    // one to one relation
+    // one to one relation user with profile
     // $user = User::create([
     //     'name'=>'mostafa3',
     //     'email'=>'mostafa@gmail.com3',
@@ -178,6 +198,28 @@ Route::get('profile',function(){
     // $profile = Profile::find(1)->user;
     // return $profile;
 
+});
+
+Route::get('posts',function(){
+// one to many relation between user and posts
+    // $user =User::create([
+    //     'name' => 'ali2',
+    //     'email'=> 'ali@gmail.com2',
+    //     'password'=>Hash::make("211544821@"),
+    // ]);
+    // $user->posts()->createMany([
+    // ['title'=>'title one' , 'content'=>'content one', 'views'=>12 , 'status'=>'active','check'=>1],
+    // ['title'=>'title two' , 'content'=>'content two' , 'views'=>55 , 'status'=>'active', 'check'=>0],
+    // ['title'=>'title three' , 'content'=>'content three', 'views'=>55 , 'status'=>'active', 'check'=>0],
+    // ]);
+
+    // return User::find(7)->posts;
+    $user = User::find(7);
+    // return $user->posts;
+
+    foreach($user->posts as $post){
+        echo $post->title . "==>>" .$post->user->name .'<br>';
+    }
 });
 /**************************************************** */
 // Route::get('/', function () {

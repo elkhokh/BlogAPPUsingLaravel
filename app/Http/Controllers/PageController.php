@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,26 +15,26 @@ class PageController extends Controller
     // dump(PageController::class);
     // dd($this);
 
-
-        $posts =[
-        ['title'=>"Man must explore, and this is exploration at its greatest" ,
-        "subtitle"=>"Problems look mighty small from 150 miles up",
-        "create_name"=>"ali",
-        "created_at"=>"on September 24, 2025"
-        ],
-            ['title'=>"Man must explore, and this is exploration at its greatest" ,
-        "subtitle"=>"Problems look mighty small from 150 miles up",
-        "create_name"=>"sara",
-        "created_at"=>"on September 4, 2025"
-    ],
-        ['title'=>"Man must explore, and this is exploration at its greatest" ,
-        "subtitle"=>"Problems look mighty small from 150 miles up",
-        "create_name"=>"mostafa",
-        "created_at"=>"on September 2, 2025"
-    ],
-
-    ];
+    //     $posts =[
+    //     ['title'=>"Man must explore, and this is exploration at its greatest" ,
+    //     "subtitle"=>"Problems look mighty small from 150 miles up",
+    //     "create_name"=>"ali",
+    //     "created_at"=>"on September 24, 2025"
+    //     ],
+    //         ['title'=>"Man must explore, and this is exploration at its greatest" ,
+    //     "subtitle"=>"Problems look mighty small from 150 miles up",
+    //     "create_name"=>"sara",
+    //     "created_at"=>"on September 4, 2025"
+    // ],
+    //     ['title'=>"Man must explore, and this is exploration at its greatest" ,
+    //     "subtitle"=>"Problems look mighty small from 150 miles up",
+    //     "create_name"=>"mostafa",
+    //     "created_at"=>"on September 2, 2025"
+    // ],
+    // ];
+    $posts = Post::all();
         return view("index",["posts"=>$posts]);
+
     }
     public function about(){
         return view("about");//go to about page in views

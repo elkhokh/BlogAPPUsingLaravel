@@ -19,4 +19,12 @@ class Post extends Model
         // بص افرض ان بتاع الفرونت او الفلاتر طلب ان التشيك دا يجيله ترو او فولس كدا دا الحل بال الكاستس
     'check'=>'boolean',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    //relation between category with post many to many
+    public function categories(){
+        return $this->belongsToMany(Category::class , "category_post"/* name of table */);
+    }
 }
