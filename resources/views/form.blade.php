@@ -28,32 +28,34 @@
         <div class="card-body p-3">
           {{-- <form method="POST" action="{{ url('form/insert') }}"> --}}
             {{-- if i use name in route --}}
-          <form method="POST" action="{{ route('form.insert') }}">
-            @csrf
-            <div class="mb-2">
-              <label for="title" class="form-label small">Title</label>
-              <input type="text" class="form-control form-control-sm rounded-2" id="title" name="title" >
-            </div>
+            <form method="POST" action="{{ route('form.insert') }}">
+    @csrf
 
-            <div class="mb-2">
-              <label for="content" class="form-label small">Content</label>
-              <textarea class="form-control form-control-sm rounded-2" id="content" name="content" rows="3" r></textarea>
-            </div>
+    <div class="mb-2">
+        <label for="title" class="form-label small">Title</label>
+        <input type="text" class="form-control form-control-sm rounded-2" id="title" name="title">
+    </div>
 
-            <div class="form-check mb-1">
-              <input type="checkbox" class="form-check-input" id="is_published" name="is_published" value="1">
-              <label class="form-check-label small" for="is_published">Published?</label>
-            </div>
+    <div class="mb-2">
+        <label for="content" class="form-label small">Content</label>
+        <textarea class="form-control form-control-sm rounded-2" id="content" name="content" rows="3"></textarea>
+    </div>
 
-            <div class="form-check mb-3">
-              <input type="checkbox" class="form-check-input" id="is_content" name="has_content" value="1">
-              <label class="form-check-label small" for="is_content">Is Content?</label>
-            </div>
+    <div class="form-check mb-1">
+        <input type="hidden" name="is_published" value="0"> {{-- Default if not checked --}}
+        <input type="checkbox" class="form-check-input" id="is_published" name="is_published" value="1">
+        <label class="form-check-label small" for="is_published">Published?</label>
+    </div>
+
+    <div class="form-check mb-3">
+        <input type="hidden" name="has_content" value="0"> {{-- Default if not checked --}}
+        <input type="checkbox" class="form-check-input" id="is_content" name="has_content" value="1">
+        <label class="form-check-label small" for="is_content">Has Content?</label>
+    </div>
             {{-- if you want to not put the @csrf make that  --}}
             {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"/>  --}}
-
-            <button type="submit" class="btn btn-success btn-sm px-3">Submit</button>
-          </form>
+    <button type="submit" class="btn btn-success btn-sm px-3">Submit</button>
+</form>
         </div>
       </div>
     </div>
@@ -79,20 +81,37 @@
               </tr>
             </thead>
             <tbody>
+
               <!-- Example Row -->
-              <tr>
-                <td>1</td>
-                <td class="text-truncate">My First Title</td>
-                <td class="text-truncate" style="max-width: 200px;">This is some example content</td>
-                <td><span class="badge bg-success">Yes</span></td>
-                <td><span class="badge bg-primary">Yes</span></td>
-                <td>
-                  <a href="#" class="btn btn-warning btn-sm me-1">Edit</a>
-                  <form action="#" method="POST" style="display:inline-block;">
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                  </form>
-                </td>
-              </tr>
+
+@foreach($forms as $form)
+{{-- style using chatgpt ,iam not frontend  --}}
+    <tr>
+        <td>{{ $form->id }}</td>
+        <td class="text-truncate">{{ $form->title }}</td>
+        <td class="text-truncate" style="max-width: 200px;">{{ $form->content }}</td>
+        <td><span class="badge {{ $form->has_content ? 'bg-success' : 'bg-secondary' }}">
+                {{ $form->has_content ? 'Yes' : 'No' }}</span></td>
+        <td><span class="badge {{ $form->is_published ? 'bg-primary' : 'bg-secondary' }}">
+                {{ $form->is_published ? 'Yes' : 'No' }} </span> </td>
+            <td><div class="d-flex align-items-center gap-1"><a href="#" class="btn btn-warning btn-sm">Edit</a>
+                <form action="#" method="POST" onsubmit="return confirm('Are you sure?')">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+    </div>
+</td>
+
+        {{-- <td>
+            <a href="#" class="btn btn-warning btn-sm me-1">Edit</a>
+            <form action="#" method="POST" style="display:inline-block;">
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+            </form>
+        </td>
+    </tr> --}}
+@endforeach
+
               <!-- End Example Row -->
             </tbody>
           </table>

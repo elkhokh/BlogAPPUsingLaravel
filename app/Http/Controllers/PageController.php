@@ -65,9 +65,16 @@ class PageController extends Controller
         DB::table('forms')->insert([
             'title'=>$request->title,
             'content'=>$request->content,
-            'is_published'=>$request->is_published,
-            'has_content'=>$request->has_content,
+            'is_published'=>$request->is_published ?? 0,
+            'has_content'=>$request->has_content ?? 0,
+            'created_at'=>now(),
+            'updated_at'=>now(),
         ]);
+
+        $forms=DB::table('forms')->get();
+        return view('form',compact('forms'));
+        // return view('form',['formss'=>$forms]);
+        // return  DB::table('forms')->get();
 
     }
     public function create_blog(Request $request ){
