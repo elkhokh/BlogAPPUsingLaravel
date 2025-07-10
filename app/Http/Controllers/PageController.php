@@ -62,7 +62,13 @@ class PageController extends Controller
         // return $request ;
 
         // to insert in database
-        DB::tabel();
+        DB::table('forms')->insert([
+            'title'=>$request->title,
+            'content'=>$request->content,
+            'is_published'=>$request->is_published,
+            'has_content'=>$request->has_content,
+        ]);
+
     }
     public function create_blog(Request $request ){
         dd($request->all());

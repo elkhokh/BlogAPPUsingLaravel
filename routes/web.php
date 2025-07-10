@@ -8,8 +8,10 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Profile;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -83,10 +85,37 @@ Route::get('/update/{id}','updatePosts');
 Route::get('/delete/{id}','deletePosts');
 
 });
+/*********** factory and fake data to test ************ */
+Route::get('fact',function(){
+
+    Post::factory(20)->create();
+});
 
 /**************** query builder ********************* */
 
 Route::get('/builder', function(){
+    // $posts = DB::table('posts')->get();
+    // $posts = DB::table('posts')->where('id',3)->get();
+    // $posts = DB::table('posts')->where('id',3)->first();// is not object
+    // return $posts ;
+
+    //insert
+    // $posts = DB::table('posts')->insert([
+    //     "title"=>"nquery builder",
+    //     "content"=>"nQuery Builder Test",
+    //     "views"=>20,
+    //     "status"=>"active",
+    //     "check"=>1,
+    //     "user_id"=>3,
+        // "created_at"=>now(),
+        // "updated_at"=>now(),
+    // ]);
+
+    //update
+    // $posts = DB::table('posts')->where('id',3)->update(['title'=>'builder']);
+
+    //delete
+    // $posts = DB::table('posts')->where('id',11)->delete();
 
 });
 /********************  Test Eloquent **************** */

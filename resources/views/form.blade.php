@@ -32,12 +32,12 @@
             @csrf
             <div class="mb-2">
               <label for="title" class="form-label small">Title</label>
-              <input type="text" class="form-control form-control-sm rounded-2" id="title" name="title" required>
+              <input type="text" class="form-control form-control-sm rounded-2" id="title" name="title" >
             </div>
 
             <div class="mb-2">
               <label for="content" class="form-label small">Content</label>
-              <textarea class="form-control form-control-sm rounded-2" id="content" name="content" rows="3" required></textarea>
+              <textarea class="form-control form-control-sm rounded-2" id="content" name="content" rows="3" r></textarea>
             </div>
 
             <div class="form-check mb-1">
@@ -46,9 +46,11 @@
             </div>
 
             <div class="form-check mb-3">
-              <input type="checkbox" class="form-check-input" id="is_content" name="is_content" value="1">
+              <input type="checkbox" class="form-check-input" id="is_content" name="has_content" value="1">
               <label class="form-check-label small" for="is_content">Is Content?</label>
             </div>
+            {{-- if you want to not put the @csrf make that  --}}
+            {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"/>  --}}
 
             <button type="submit" class="btn btn-success btn-sm px-3">Submit</button>
           </form>
@@ -81,7 +83,7 @@
               <tr>
                 <td>1</td>
                 <td class="text-truncate">My First Title</td>
-                <td class="text-truncate" style="max-width: 200px;">This is some example content fjfoiewjfiojefsfdsljffffffffdfssssssssssssssssssssssssssffffffffff</td>
+                <td class="text-truncate" style="max-width: 200px;">This is some example content</td>
                 <td><span class="badge bg-success">Yes</span></td>
                 <td><span class="badge bg-primary">Yes</span></td>
                 <td>

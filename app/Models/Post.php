@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+
+    //to user factory method is the trait class
+    use HasFactory;
+
+
     // دا في حالة ان لو غيرت اسم  الجدول الخاص بالبوستس الي اسم تاني
     // protected $tabel = "tests";
 
