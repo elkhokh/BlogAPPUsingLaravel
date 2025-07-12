@@ -36,8 +36,10 @@ Route::post('contact','create_new_contact')->name("create_new_contact");
 
 // Route::view('/post',"post");
 Route::get('post','post');
+
 Route::get('form','form');
-Route::post('form/insert','insert')->name('form.insert');
+Route::post('insert','insert')->name('insert');
+Route::get('edit/{id}','edit')->name('edit');
 // Route::post('/form','create_blog')->name('create_blog');
 
 });

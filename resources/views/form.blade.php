@@ -28,7 +28,7 @@
         <div class="card-body p-3">
           {{-- <form method="POST" action="{{ url('form/insert') }}"> --}}
             {{-- if i use name in route --}}
-            <form method="POST" action="{{ route('form.insert') }}">
+            <form method="POST" action="{{ route('insert') }}">
     @csrf
 
     <div class="mb-2">
@@ -94,8 +94,11 @@
                 {{ $form->has_content ? 'Yes' : 'No' }}</span></td>
         <td><span class="badge {{ $form->is_published ? 'bg-primary' : 'bg-secondary' }}">
                 {{ $form->is_published ? 'Yes' : 'No' }} </span> </td>
-            <td><div class="d-flex align-items-center gap-1"><a href="#" class="btn btn-warning btn-sm">Edit</a>
-                <form action="#" method="POST" onsubmit="return confirm('Are you sure?')">
+
+
+            <td><div class="d-flex align-items-center gap-1"><a href="{{ route('edit',$form->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="#" method="POST" >
+                    {{-- onsubmit="return confirm('Are you sure?')" --}}
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger btn-sm">Delete</button>

@@ -54,9 +54,15 @@ class PageController extends Controller
     public function contact(){
         return view("contact");//go to contact pate  in views
     }
-    public function form(){
-        return view("form");
-    }
+    // public function form(){
+    //     return view("form");
+    //     // return view('form', compact('forms'));
+    // }
+
+public function form() {
+    $forms = DB::table('forms')->get();
+    return view('form', ['forms' => $forms]);
+}
     public function insert(Request $request ){
         // dd($request->all());
         // return $request ;
@@ -71,9 +77,12 @@ class PageController extends Controller
             'updated_at'=>now(),
         ]);
 
-        $forms=DB::table('forms')->get();
-        return view('form',compact('forms'));
-        // return view('form',['formss'=>$forms]);
+    $forms = DB::table('forms')->get();
+    return view('form', ['forms' => $forms]);
+        // return true;
+        // $forms=DB::table('forms')->get();
+        // return view('form',compact('forms'));
+        // return view('form',['forms'=>$forms]);
         // return  DB::table('forms')->get();
 
     }
@@ -89,5 +98,9 @@ class PageController extends Controller
     //         dd($id);
     //     return view("contact");
     // }
+
+    public function edit($id){
+        return $id ;
+    }
 }
 // dd(new PageController);
