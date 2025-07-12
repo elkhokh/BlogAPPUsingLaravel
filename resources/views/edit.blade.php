@@ -25,9 +25,9 @@
                     Edit Item
                 </div>
                 <div class="card-body p-3">
-                    <form method="POST" action="{{ route('form.update', $form->id) }}">
+                    <form method="POST" action="{{ route('insert') }}">
                         @csrf
-                        @method('PUT')
+
 
                         <div class="mb-2">
                             <label for="title" class="form-label small">Title</label>
@@ -52,7 +52,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-sm px-3">Update</button>
-                        <a href="{{ route('form.index') }}" class="btn btn-secondary btn-sm px-3">Cancel</a>
+                        <a href="{{ route('insert') }}" class="btn btn-secondary btn-sm px-3">Cancel</a>
                     </form>
                 </div>
             </div>

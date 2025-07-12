@@ -100,7 +100,13 @@ public function form() {
     // }
 
     public function edit($id){
-        return $id ;
+        // return $id ;
+        $form =  DB::table('forms')->where ('id', $id)->first();
+        // $form =  DB::table('forms')->where ('id','==', $id)->first();
+        // return $form ;
+        // return view('edit',compact($form));
+        // return view('edit',compact($form));
+         return view('edit', ['form' => $form]);
     }
 }
 // dd(new PageController);
