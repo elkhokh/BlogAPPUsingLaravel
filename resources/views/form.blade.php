@@ -123,6 +123,7 @@
         </div>
 
 <a href="{{ route('delete_all') }}" class="btn btn-danger btn" onclick="return confirm('Are you sure you want to delete all items?');">Delete All</a>
+<a href="{{ route('truncate_all') }}" class="btn btn-warning btn" onclick="return confirm('Are you sure you want to truncate all items?');">Truncate All</a>
       </div>
     </div>
   </div>

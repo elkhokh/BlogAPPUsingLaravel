@@ -132,5 +132,10 @@ public function form() {
         DB::table('forms')->delete();//delete() is delete all posts but the id is increment from last id if id =30 and delete all the new post will be 31 to solve that use truncate
         return redirect()->route('form');
     }
+
+    public function truncateAll(){
+        DB::table('forms')->truncate();
+        return redirect()->route('form');
+    }
 }
 // dd(new PageController);
