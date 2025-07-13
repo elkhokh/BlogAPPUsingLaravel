@@ -97,13 +97,14 @@
 
 
             <td><div class="d-flex align-items-center gap-1"><a href="{{ route('edit',$form->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                <form action="#" method="POST" >
-                    {{-- onsubmit="return confirm('Are you sure?')" --}}
+            {{-- <a href="{{ route('delete',$form->id) }}" class="btn btn-danger btn-sm">Delete</a> --}}
+                <form action="{{ route('delete',$form->id) }}" method="POST"
+                    onsubmit="return confirm('Are you sure?')">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
         </form>
-    </div>
+                </div>
 </td>
 
         {{-- <td>
@@ -118,7 +119,10 @@
               <!-- End Example Row -->
             </tbody>
           </table>
+
         </div>
+
+<a href="{{ route('delete_all') }}" class="btn btn-danger btn" onclick="return confirm('Are you sure you want to delete all items?');">Delete All</a>
       </div>
     </div>
   </div>

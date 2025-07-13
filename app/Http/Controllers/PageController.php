@@ -106,7 +106,31 @@ public function form() {
         // return $form ;
         // return view('edit',compact($form));
         // return view('edit',compact($form));
-         return view('edit', ['form' => $form]);
+        return view('edit', ['form' => $form]);
+    }
+
+    public function update(Request $request, $id){
+        // return $id ;
+    DB::table('forms')->where('id',$id)->update([
+        'title' => $request->title ,
+        'content'=>$request->content,
+        'is_published'=>$request->is_published,
+        'has_content'=>$request->has_content,
+    ]);
+    // return response("this data updated successful");
+    return redirect()->route('form');
+
+    }
+
+    public function delete($id){
+        // return $id ;
+        DB::table('forms')->where('id',$id)->delete();
+        return redirect()->route('form');
+    }
+
+    public function deleteAll(){
+        DB::table('forms')->delete();//delete() is delete all posts but the id is increment from last id if id =30 and delete all the new post will be 31 to solve that use truncate
+        return redirect()->route('form');
     }
 }
 // dd(new PageController);

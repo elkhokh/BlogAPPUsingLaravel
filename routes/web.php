@@ -37,9 +37,14 @@ Route::post('contact','create_new_contact')->name("create_new_contact");
 // Route::view('/post',"post");
 Route::get('post','post');
 
-Route::get('form','form');
+Route::get('form','form')->name('form');
 Route::post('insert','insert')->name('insert');
 Route::get('edit/{id}','edit')->name('edit');
+// Route::post('update/{id}','update')->name('update');
+Route::put('update/{id}','update')->name('update');
+// Route::get('delete/{id}','delete')->name('delete');
+Route::delete('delete/{id}','delete')->name('delete');//if i get id from form
+Route::get('delete_all','deleteAll')->name('delete_all');
 // Route::post('/form','create_blog')->name('create_blog');
 
 });
