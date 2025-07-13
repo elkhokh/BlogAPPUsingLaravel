@@ -11,9 +11,12 @@ class Post extends Model
     //to user factory method is the trait class
     use HasFactory;
 
-
     // دا في حالة ان لو غيرت اسم  الجدول الخاص بالبوستس الي اسم تاني
     // protected $tabel = "tests";
+
+    // public $timestamps = false ; // if i want to stop timestamps in table of posts
+    // protected $primaryKey = 'name of id';
+    // public $incrementing = false ;// to stop auto increment from id
 
     //mass assignment
     // protected $fillable=['title','content']; //add in title and content just

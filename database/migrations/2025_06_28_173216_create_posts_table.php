@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string("title",255)->nullable();
-            $table->timestamps();//created_at and updated_at
+            $table->timestamps();//created_at and updated_at // will be stop when use the i want to not use this with stop at model file
             //$tabel->boolean('check')->default(0);
             $table->integer("views")->nullable();
             $table->enum("status",['active','notactive'])->default('notactive');
