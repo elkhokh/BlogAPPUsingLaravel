@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\LogRequestMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -12,7 +13,8 @@ return Application::configure(basePath: dirname(__DIR__))//basepath === handle a
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {// calling middleware
-        //
+        //any request run this log run
+        $middleware->append(LogRequestMiddleware::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void { // using in api
         //
