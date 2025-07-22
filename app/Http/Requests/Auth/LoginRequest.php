@@ -16,7 +16,7 @@ class LoginRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true; // give permissions to user
+        return true;
     }
 
     /**
@@ -45,10 +45,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                // 'email' => trans('auth.failed'),
-                // 'email' => __('messages.failed'),
-                'email' => __('messages.failed'),
-
+                'email' => trans('auth.failed'),
             ]);
         }
 

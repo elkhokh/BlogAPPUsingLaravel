@@ -9,10 +9,8 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Middleware\IsAdmainMiddleware;
 use Illuminate\Support\Facades\Route;
 
-// Route::middleware(IsAdmainMiddleware::class)->group(function () { // run code before go to route is global middlware
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
@@ -21,7 +19,6 @@ Route::middleware('guest')->group(function () {
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
-        // ->name('login')->middleware(IsAdmainMiddleware::class);// casting middlware
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 

@@ -68,14 +68,14 @@ public function form() {
         // return $request ;
 
         // to insert in database
-        DB::table('forms')->insert([
-            'title'=>$request->title,
-            'content'=>$request->content,
-            'is_published'=>$request->is_published ?? 0,
-            'has_content'=>$request->has_content ?? 0,
-            'created_at'=>now(),
-            'updated_at'=>now(),
-        ]);
+        // DB::table('forms')->insert([
+        //     'title'=>$request->title,
+        //     'content'=>$request->content,
+        //     'is_published'=>$request->is_published ?? 0,
+        //     'has_content'=>$request->has_content ?? 0,
+        //     'created_at'=>now(),
+        //     'updated_at'=>now(),
+        // ]);
 
     $forms = DB::table('forms')->get();
     return view('form', ['forms' => $forms]);
@@ -111,12 +111,12 @@ public function form() {
 
     public function update(Request $request, $id){
         // return $id ;
-    DB::table('forms')->where('id',$id)->update([
-        'title' => $request->title ,
-        'content'=>$request->content,
-        'is_published'=>$request->is_published,
-        'has_content'=>$request->has_content,
-    ]);
+    // DB::table('forms')->where('id',$id)->update([
+    //     'title' => $request->title ,
+    //     'content'=>$request->content,
+    //     'is_published'=>$request->is_published,
+    //     'has_content'=>$request->has_content,
+    // ]);
     // return response("this data updated successful");
     return redirect()->route('form');
 

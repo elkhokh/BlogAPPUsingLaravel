@@ -14,24 +14,20 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-
+// require __DIR__.'/profile.php';
 require __DIR__.'/auth.php';
 
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::resource("posts",PostController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 
 // Route::get("api_test",function(){
 //     $resp = http::get("https://jsonplaceholder.typicode.com/posts");
@@ -63,7 +59,7 @@ Route::post('contact','create_new_contact')->name("create_new_contact");
 // Route::get('/contact/{id}',[PageController::class,'test']);
 
 // Route::view('/post',"post");
-Route::get('post','post');
+// Route::get('post','post');
 
 Route::get('form','form')->name('form');
 Route::post('insert','insert')->name('insert');
@@ -113,19 +109,19 @@ Route::get('truncate_all','truncateAll')->name('truncate_all');
 
 //---------------------------------------
 
-Route::controller(PostController::class)->prefix('posts')->group(function(){
-Route::get('/','showPosts');
-Route::get('/create','createPosts');
-Route::get('/edit/{id}','editPosts');
-Route::get('/update/{id}','updatePosts');
-Route::get('/delete/{id}','deletePosts');
+// Route::controller(PostController::class)->prefix('posts')->group(function(){
+// Route::get('/','showPosts');
+// Route::get('/create','createPosts');
+// Route::get('/edit/{id}','editPosts');
+// Route::get('/update/{id}','updatePosts');
+// Route::get('/delete/{id}','deletePosts');
 
-});
+// });
 /*********** factory and fake data to test ************ */
-Route::get('fact',function(){
+// Route::get('fact',function(){
 
-    Post::factory(20)->create();
-});
+//     Post::factory(20)->create();
+// });
 
 /**************** query builder ********************* */
 
@@ -247,7 +243,7 @@ Route::get('eloquent', function () {
 
 });
 
-Route::get('profile',function(){
+// Route::get('profile',function(){
     // one to one relation user with profile
     // $user = User::create([
     //     'name'=>'mostafa3',
@@ -267,9 +263,9 @@ Route::get('profile',function(){
     // $profile = Profile::find(1)->user;
     // return $profile;
 
-});
+// });
 
-Route::get('posts',function(){
+// Route::get('posts',function(){
 // one to many relation between user and posts
     // $user =User::create([
     //     'name' => 'ali2',
@@ -283,13 +279,13 @@ Route::get('posts',function(){
     // ]);
 
     // return User::find(7)->posts;
-    $user = User::find(7);
-    // return $user->posts;
+//     $user = User::find(7);
+//     // return $user->posts;
 
-    foreach($user->posts as $post){
-        echo $post->title . "==>>" .$post->user->name .'<br>';
-    }
-});
+//     foreach($user->posts as $post){
+//         echo $post->title . "==>>" .$post->user->name .'<br>';
+//     }
+// });
 /**************************************************** */
 // Route::get('/', function () {
 //     return view('welcome');
