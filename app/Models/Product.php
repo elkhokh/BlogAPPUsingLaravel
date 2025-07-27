@@ -20,4 +20,4 @@ class Product extends Model
     return $query->where('name',"Chastity Banks");
     }
 }
-// esew
+
